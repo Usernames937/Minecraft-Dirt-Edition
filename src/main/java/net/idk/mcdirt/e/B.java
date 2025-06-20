@@ -42,37 +42,7 @@ public class B {
             create("dirt23", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT))),
             create("dirt24", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT))),
             create("dirt25", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT))),
-    };/*
-    public static final DeferredBlock<Block> DIRT1 = create("dirt1",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT)));
-    public static final DeferredBlock<Block> DIRT2 = create("dirt2",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT)));
-    public static final DeferredBlock<Block> DIRT3 = create("dirt3",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT)));
-    public static final DeferredBlock<Block> DIRT4 = create("dirt4",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT)));
-    public static final DeferredBlock<Block> DIRT5 = create("dirt5",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT)));
-    public static final DeferredBlock<Block> DIRT6 = create("dirt6",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT)));
-    public static final DeferredBlock<Block> DIRT7 = create("dirt7",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT)));
-    public static final DeferredBlock<Block> DIRT8 = create("dirt8",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT)));
-    public static final DeferredBlock<Block> DIRT9 = create("dirt9",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT)));
-    public static final DeferredBlock<Block> DIRT10 = create("dirt10",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT)));
-    public static final DeferredBlock<Block> DIRT11 = create("dirt11",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT)));
-    public static final DeferredBlock<Block> DIRT12 = create("dirt12",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT)));
-    public static final DeferredBlock<Block> DIRT13 = create("dirt13",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT)));
-    public static final DeferredBlock<Block> DIRT14 = create("dirt14",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT)));
-    public static final DeferredBlock<Block> DIRT15 = create("dirt15",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT)));*/
+    };
 
     public static <T extends Block> DeferredBlock<T> create(String n, Supplier<T> b, Item.Properties p) {
         DeferredBlock<T> r = BLOCK.register(n, b);

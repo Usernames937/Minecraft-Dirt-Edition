@@ -16,7 +16,7 @@ public class I {
     public static final DeferredItem<Item> TOTEM_OF_COMPELETION = r("compeletion_totem",
             () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC).fireResistant()));
 
-    public static DeferredItem<Item> r(String n, Supplier<Item> s) {
+    public static <T extends Item> DeferredItem<T> r(String n, Supplier<T> s) {
         return ITEM.register(n, s);
     }
     public static void register(IEventBus e) {
