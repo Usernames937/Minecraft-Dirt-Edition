@@ -1,7 +1,10 @@
 package net.idk.mcdirt.v;
 
+import net.idk.mcdirt.Config;
 import net.idk.mcdirt.Data;
 import net.idk.mcdirt.Mod_;
+import net.idk.mcdirt.e.I;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.commands.CommandSource;
 import net.minecraft.commands.CommandSourceStack;
@@ -33,39 +36,42 @@ public class $ {
                 .requires(q -> {
                     return q.isPlayer() && !Data.installed_totem.installed;
                 }).then(Commands.literal("totem_action").executes(p -> {
-                    Player _sp = p.getSource().getPlayer();
-                    String[] dList = {
-                            "advancement builder",
-                            "advancement getter",
-                            "advancement constractor",
-                            "advancement executor",
-                            "item consumer",
-                            "item functioner",
-                            "item register",
-                            "item setter",
-                            "function builder",
-                            "function register",
-                            "function executor",
-                            "calculator",
-                            "starter",
-                    };
-                    for (int i = 0; i < dList.length; i++) {
-                        Mod_.queueServer(10, () -> {});
-                        _sp.displayClientMessage(Component.literal("downloading " + dList[i] + "..."), false);
+                    if (p.getSource().getPlayer() != null) {
+                        Player _sp = p.getSource().getPlayer();
+                        String[] dList = {
+                                "advancement builder",
+                                "advancement getter",
+                                "advancement constractor",
+                                "advancement executor",
+                                "item consumer",
+                                "item functioner",
+                                "item register",
+                                "item setter",
+                                "function builder",
+                                "function register",
+                                "function executor",
+                                "calculator",
+                                "starter",
+                        };
+                        for (int i = 0; i < dList.length; i++) {
+                            _sp.displayClientMessage(Component.literal("downloading " + dList[i] + "..."), false);
+                        }
+                        _sp.displayClientMessage(Component.literal("Finishing..."), false);
+                        if (!Config.common.ENABLE_DIRT_MINECRAFT.get()) {
+                            _sp.displayClientMessage(Component.literal(ChatFormatting.RED + "\nWARNING: Minecraft Dirt Edition is NOT enabled," +
+                                    "\nTo make this actually functional, enable minecraft dirt edition.\n\n\n"), false);
+                        }
+                        _sp.displayClientMessage(Component.literal("\n> Finished"), false);
+                        Data.installed_totem.set(true);
                     }
-                    Mod_.queueServer(10, () -> {});
-                    _sp.displayClientMessage(Component.literal("Finishing..."), false);
-                    Mod_.queueServer(10, () -> {});
-                    _sp.displayClientMessage(Component.literal("\n> Finished"), false);
-                    Data.installed_totem.set(true);
                     return 0;
                 })));
     }
 
     @SubscribeEvent
     public static void _2e(PlayerInteractEvent.RightClickItem _p) {
-        if (Data.installed_totem.installed) {
-            ItemStack stack = _p.getItemStack();
+        ItemStack stack = _p.getItemStack();
+        if (Data.installed_totem.installed && Config.common.ENABLE_DIRT_MINECRAFT.get() && stack.is(I.TOTEM_OF_COMPELETION)) {
             LivingEntity entity = _p.getEntity();
             Level l = entity.level();
             if (entity instanceof ServerPlayer s && l instanceof ServerLevel sl) {

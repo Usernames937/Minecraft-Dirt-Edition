@@ -1,5 +1,6 @@
 package net.idk.mcdirt.e;
 
+import net.idk.mcdirt.Config;
 import net.idk.mcdirt.Mod_;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -19,8 +20,10 @@ public class C {
     public static final Supplier<CreativeModeTab> DIRTS = build("dirts",
             () -> CreativeModeTab.builder()
                     .displayItems((p, _p) -> {
-                        for (int i = 0; i < 25; i++) {
-                            _p.accept(B.DIRTS[i]);
+                        if (Config.common.ENABLE_DIRT_MINECRAFT.get()) {
+                            for (int i = 0; i < 25; i++) {
+                                _p.accept(B.DIRTS[i]);
+                            }
                         }
                     })
                     .withSearchBar()
@@ -31,7 +34,9 @@ public class C {
     public static final Supplier<CreativeModeTab> COMMON = build("common",
             () -> CreativeModeTab.builder()
                     .displayItems((p, _p) -> {
-                        _p.accept(I.TOTEM_OF_COMPELETION);
+                        if (Config.common.ENABLE_DIRT_MINECRAFT.get()) {
+                            _p.accept(I.TOTEM_OF_COMPELETION);
+                        }
                     })
                     .icon(() -> new ItemStack(Items.END_CRYSTAL))
                     .title(Component.literal("Common"))

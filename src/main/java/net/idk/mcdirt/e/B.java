@@ -43,7 +43,6 @@ public class B {
             create("dirt24", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT))),
             create("dirt25", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT))),
     };
-
     public static <T extends Block> DeferredBlock<T> create(String n, Supplier<T> b, Item.Properties p) {
         DeferredBlock<T> r = BLOCK.register(n, b);
         bItem(n, r, p);
