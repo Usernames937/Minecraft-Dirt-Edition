@@ -7,6 +7,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
@@ -34,6 +35,12 @@ public class RecipeGenerator extends RecipeProvider implements IConditionBuilder
                 .pattern("eee")
                 .unlockedBy("dirt25-i3nfnj2t4kt2nt", has(B.DIRTS[24]))
                 .save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.SHULKER_SHELL)
+                .define('t', B.DIRTS[4])
+                .pattern("ttt")
+                .pattern("t t")
+                .unlockedBy(Mod_.ID + ":shulkershell-d5i3nfinm1fj", has(B.DIRTS[4]))
+                .save(output, Mod_.ID + ":shulkershell-d5i3nfinm1fj");
     }
 
     protected static void smelting(
