@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "q": {
+      "item": "mcdirt:dirt12"
+    }
+  },
+  "pattern": [
+    "qqq",
+    "qqq",
+    "qqq"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mcdirt:dirt13"
+  }
+}

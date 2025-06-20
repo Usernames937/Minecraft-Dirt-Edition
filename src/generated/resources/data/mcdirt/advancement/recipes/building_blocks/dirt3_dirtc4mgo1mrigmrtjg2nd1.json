@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has-84k1h4h5unur1b": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mcdirt:dirt2"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mcdirt:dirt3_dirtc4mgo1mrigmrtjg2nd1"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has-84k1h4h5unur1b"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mcdirt:dirt3_dirtc4mgo1mrigmrtjg2nd1"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "dirt25-i3nfnj2t4kt2nt": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mcdirt:dirt25"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mcdirt:compeletion_totem"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "dirt25-i3nfnj2t4kt2nt"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mcdirt:compeletion_totem"
+    ]
+  }
+}
