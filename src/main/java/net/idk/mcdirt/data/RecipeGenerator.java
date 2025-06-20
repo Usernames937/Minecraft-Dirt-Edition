@@ -23,7 +23,7 @@ public class RecipeGenerator extends RecipeProvider implements IConditionBuilder
 
     @Override
     protected void buildRecipes(@NotNull RecipeOutput output) {
-        dirt(output, Blocks.DIRT, B.DIRTS[1], 9999999);
+        dirt(output, Blocks.DIRT, B.DIRTS[0], 9999999);
         for (int i = 0; i < 25 - 1; i++) {
             dirt(output, B.DIRTS[i], B.DIRTS[i + 1], i);
         }

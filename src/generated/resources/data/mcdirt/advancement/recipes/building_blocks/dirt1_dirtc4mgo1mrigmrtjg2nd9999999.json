@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mcdirt:dirt2_dirtc4mgo1mrigmrtjg2nd9999999"
+        "recipe": "mcdirt:dirt1_dirtc4mgo1mrigmrtjg2nd9999999"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "mcdirt:dirt2_dirtc4mgo1mrigmrtjg2nd9999999"
+      "mcdirt:dirt1_dirtc4mgo1mrigmrtjg2nd9999999"
     ]
   }
 }

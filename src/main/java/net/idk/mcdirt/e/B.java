@@ -15,8 +15,18 @@ import java.util.function.Supplier;
 public class B {
     public static final DeferredRegister.Blocks BLOCK =
             DeferredRegister.createBlocks(Mod_.ID);
+    public static DeferredBlock<?>[] getDirts() {
+        final int arraySize = 25;
+        DeferredBlock<?>[] array = new DeferredBlock[arraySize];
+        for (int i = 0; i < arraySize; i++) {
+            int v = i + 1;
+            array[i] = create("dirt" + v, () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT)));
+        }
+        return array;
+    }
 
-    public static final DeferredBlock<?>[] DIRTS = {
+    public static final DeferredBlock<?>[] DIRTS = getDirts();
+    /*public static final DeferredBlock<?>[] DIRTS = {
             create("dirt1", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT))),
             create("dirt2", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT))),
             create("dirt3", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT))),
@@ -42,7 +52,7 @@ public class B {
             create("dirt23", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT))),
             create("dirt24", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT))),
             create("dirt25", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT))),
-    };
+    };*/
     public static <T extends Block> DeferredBlock<T> create(String n, Supplier<T> b, Item.Properties p) {
         DeferredBlock<T> r = BLOCK.register(n, b);
         bItem(n, r, p);
