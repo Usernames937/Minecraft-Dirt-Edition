@@ -29,14 +29,14 @@ public class RecipeGenerator extends RecipeProvider implements IConditionBuilder
             dirt(output, B.DIRTS[i], B.DIRTS[i + 1], i);
         }
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, I.TOTEM_OF_COMPELETION)
-                .define((Character) 'e', B.DIRTS[24])
+                .define('e', B.DIRTS[24])
                 .pattern("eee")
                 .pattern("eee")
                 .pattern("eee")
                 .unlockedBy("dirt25-i3nfnj2t4kt2nt", has(B.DIRTS[24]))
                 .save(output);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.SHULKER_SHELL)
-                .define((Character)'t', B.DIRTS[4])
+                .define('t', B.DIRTS[4])
                 .pattern("ttt")
                 .pattern("t t")
                 .unlockedBy(Mod_.ID + ":shulkershell-d5i3nfinm1fj", has(B.DIRTS[4]))
@@ -128,7 +128,7 @@ public class RecipeGenerator extends RecipeProvider implements IConditionBuilder
     //if anyone want to modify, create a different method.
     private static void dirt(RecipeOutput o, ItemLike mt, ItemLike re, int i) {
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, re)
-                .define((Character)'q', mt)
+                .define('q', mt)
                 .pattern("qqq")
                 .pattern("qqq")
                 .pattern("qqq")
