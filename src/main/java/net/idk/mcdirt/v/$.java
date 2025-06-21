@@ -88,7 +88,6 @@ public class $ {
                 Minecraft.getInstance().gameRenderer.displayItemActivation(stack);
                 sl.playSound(s, s.getX(), s.getY(), s.getZ(), SoundEvents.TOTEM_USE, SoundSource.MASTER);
                 sl.sendParticles(ParticleTypes.TOTEM_OF_UNDYING, s.getX(), s.getY(), s.getZ(), 1000, 1.5, 1.5, 1.5, 1);
-                ServerLevel overworld = s.server.getLevel(Level.OVERWORLD);
                 Mod_.queueServer(100, new Runnable() {
                     @Override
                     public void run() {
@@ -98,9 +97,7 @@ public class $ {
                                         s.getName().getString(), s.getDisplayName(), s.getServer(), s),
                                 "damage @n[type=ender_dragon] 100000 minecraft:explosion"
                         );
-                        //s.showEndCredits();
                         s.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 180 * 20, 4, false, false));
-                        //Mod_.queueServer(20, () -> s.teleportTo(overworld, s.getX(), s.getY(), s.getZ(), 180, 0));
                     }
                 });
                 s.addItem(new ItemStack(Items.BEACON, 16));
