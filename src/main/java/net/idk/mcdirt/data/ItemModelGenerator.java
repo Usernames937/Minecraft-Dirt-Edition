@@ -18,7 +18,10 @@ public class ItemModelGenerator extends ItemModelProvider {
     @Override
     protected void registerModels() {
         basicItem_(I.TOTEM_OF_COMPELETION.asItem(), ResourceLocation.withDefaultNamespace("totem_of_undying"));
-    }
+        for (int i = 0; i < I.PACKAGES.length; i++) {
+            basicItem_(I.PACKAGES[i].asItem(), ResourceLocation.withDefaultNamespace("bundle_filled"));
+        }
+     }
 
     public ItemModelBuilder basicItem_(Item item, ResourceLocation location) {
         return getBuilder(item.toString())

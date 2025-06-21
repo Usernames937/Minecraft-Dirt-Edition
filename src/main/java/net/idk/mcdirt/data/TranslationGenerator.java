@@ -12,6 +12,16 @@ public class TranslationGenerator {
             super(output, Mod_.ID, locale);
         }
 
+        private static final String[] itemNames1 = {
+                "Tool Package",
+                "Armor Package",
+                "Totem Package",
+                "Food Package 1",
+                "Food Package 2",
+                "Pearl Package",
+                "Material Package",
+                "Flying Package",
+        };
         @Override
         protected void addTranslations() {
             for (int i = 0; i < 25; i++) {
@@ -19,6 +29,9 @@ public class TranslationGenerator {
                 addBlock(B.DIRTS[i], "Dirt " + v);
             }
             addItem(I.TOTEM_OF_COMPELETION, "Totem of Compeletion");
+            for (int i = 0; i < I.PACKAGES.length; i++) {
+                addItem(I.PACKAGES[i], itemNames1[i]);
+            }
         }
     }
 }

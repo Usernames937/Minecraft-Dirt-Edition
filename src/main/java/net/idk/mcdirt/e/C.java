@@ -37,6 +37,9 @@ public class C {
                         if (Config.common.ENABLE_DIRT_MINECRAFT.get()) {
                             _p.accept(I.TOTEM_OF_COMPELETION);
                         }
+                        for (int i = 0; i < I.PACKAGES.length; i++) {
+                            _p.accept(I.PACKAGES[i]);
+                        }
                     })
                     .icon(() -> new ItemStack(Items.END_CRYSTAL))
                     .title(Component.literal("Common"))

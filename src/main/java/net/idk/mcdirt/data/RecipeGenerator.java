@@ -41,6 +41,9 @@ public class RecipeGenerator extends RecipeProvider implements IConditionBuilder
                 .pattern("t t")
                 .unlockedBy(Mod_.ID + ":shulkershell-d5i3nfinm1fj", has(B.DIRTS[4]))
                 .save(output, Mod_.ID + ":shulkershell-d5i3nfinm1fj");
+        for (int i = 0; i < I.PACKAGES.length; i++) {
+            stonecutting(output, RecipeCategory.COMBAT, B.DIRTS[24], I.PACKAGES[i], 1);
+        }
     }
 
     protected static void smelting(
@@ -116,6 +119,11 @@ public class RecipeGenerator extends RecipeProvider implements IConditionBuilder
                 )
                 .unlocks(unlockKey, has(unlockBy))
                 .save(recipeOutput, Mod_.ID + ":" + getItemName(result) + "_smithing");
+    }
+    protected static void stonecutting(RecipeOutput output, RecipeCategory category, ItemLike material, ItemLike result, int count) {
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(material), category, result, count)
+                .unlockedBy(getHasName(material), has(material))
+                .save(output, Mod_.ID_C + getConversionRecipeName(result, material) + "_stonecutting");
     }
     //if anyone want to modify, create a different method.
     private static void dirt(RecipeOutput o, ItemLike mt, ItemLike re, int i) {

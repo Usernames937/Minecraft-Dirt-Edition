@@ -9,6 +9,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.commands.CommandSource;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -105,6 +106,35 @@ public class $ {
             }
         } else {
             return;
+        }
+    }
+
+    @SubscribeEvent
+    public static void _3e(PlayerInteractEvent.RightClickItem _p) {
+        try {
+            if (!_p.getLevel().isClientSide) {
+                ItemStack stack = _p.getItemStack();
+                Player player = _p.getEntity();
+                Level level = _p.getLevel();
+                int pNumber = -1;
+                for (int i = 0; i < I.PACKAGES.length; i++) {
+                    if (stack.is(I.PACKAGES[i])) {
+                        pNumber = i;
+                        break;
+                    }
+                }
+                if (pNumber != -1) {
+                    for (int i = 0; i < I.Arrays.packs[pNumber].length; i++) {
+                        if (pNumber == 2 && i == 0)
+                            I.Arrays.setData_p2();
+                        player.drop(I.Arrays.packs[pNumber][i], false);
+                        level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.BUNDLE_DROP_CONTENTS, SoundSource.PLAYERS);
+                    }
+                    stack.consume(1, player);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 }

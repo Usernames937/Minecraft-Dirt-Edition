@@ -29,6 +29,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 @Mod(Mod_.ID)
 public class Mod_ {
     public static final String ID = "mcdirt";
+    public static final String ID_C = ID + ":";
     private static final Logger LOGGER = LogUtils.getLogger();
     public Mod_(IEventBus e, ModContainer modContainer) {
         e.addListener(this::commonSetup);
@@ -53,7 +54,7 @@ public class Mod_ {
     public void tick(ServerTickEvent.Post event) {
         List<Tuple<Runnable, Integer>> actions = new ArrayList<>();
         workQueue.forEach(work -> {
-            work.setB(work.getB() - 1);
+            work.setB((Integer) (work.getB() - 1));
             if (work.getB() == 0)
                 actions.add(work);
         });
