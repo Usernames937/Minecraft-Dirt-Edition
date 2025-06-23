@@ -8,6 +8,7 @@ import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
@@ -27,6 +28,9 @@ public class DataGenerators {
         daG_1_.addProvider(gde_1_.includeServer(), new LootTableProvider(out_1_, Collections.emptySet(),
                 List.of(new LootTableProvider.SubProviderEntry(BlockLootTableGenerator::new, LootContextParamSets.BLOCK)), lookup_1_));
         daG_1_.addProvider(gde_1_.includeServer(), new RecipeGenerator(out_1_, lookup_1_));
+        BlockTagsProvider bokT_1_ = new TagGenerator.BlockT(out_1_, lookup_1_, efile_1_);
+        daG_1_.addProvider(gde_1_.includeServer(), bokT_1_);
+        daG_1_.addProvider(gde_1_.includeServer(), new TagGenerator.ItemT(out_1_, lookup_1_, bokT_1_.contentsGetter(), efile_1_));
         daG_1_.addProvider(gde_1_.includeClient(), new TranslationGenerator.en_us(out_1_, "en_us"));
         daG_1_.addProvider(gde_1_.includeClient(), new ItemModelGenerator(out_1_, efile_1_));
         daG_1_.addProvider(gde_1_.includeClient(), new BlockStateGenerator(out_1_, efile_1_));
