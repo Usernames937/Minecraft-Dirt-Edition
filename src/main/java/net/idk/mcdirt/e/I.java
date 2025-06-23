@@ -2,10 +2,7 @@ package net.idk.mcdirt.e;
 
 import net.idk.mcdirt.Mod_;
 import net.idk.mcdirt.e.adv.PackageItem;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;

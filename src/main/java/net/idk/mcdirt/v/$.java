@@ -4,7 +4,6 @@ import net.idk.mcdirt.Config;
 import net.idk.mcdirt.Data;
 import net.idk.mcdirt.Mod_;
 import net.idk.mcdirt.e.I;
-import net.idk.mcdirt.e.adv.PackageItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.commands.CommandSource;
@@ -28,8 +27,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.EventBusSubscriber.Bus;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
-
-import java.util.Random;
 
 @EventBusSubscriber(modid = Mod_.ID, bus = Bus.GAME)
 public class $ {
