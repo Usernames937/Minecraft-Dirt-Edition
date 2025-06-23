@@ -21,6 +21,7 @@ public class TranslationGenerator {
                 "Pearl Package",
                 "Material Package",
                 "Flying Package",
+                "Admin Package"
         };
         @Override
         protected void addTranslations() {

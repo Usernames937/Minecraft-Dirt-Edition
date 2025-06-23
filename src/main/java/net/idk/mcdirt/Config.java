@@ -7,10 +7,12 @@ public class Config {
         public static final ModConfigSpec.Builder builder = new ModConfigSpec.Builder();
         public static final ModConfigSpec SPEC;
         public static final ModConfigSpec.BooleanValue ENABLE_DIRT_MINECRAFT;
+        public static final ModConfigSpec.BooleanValue REMOVE_PACKAGE_COOLDOWN;
 
         static {
             builder.push("Basic Configs");
-            ENABLE_DIRT_MINECRAFT = builder.comment("Enable Minecraft Dirt Edition").define("enable", true);
+            ENABLE_DIRT_MINECRAFT = builder.comment("Enable Minecraft Dirt Edition").define("enable mcdirt", true);
+            REMOVE_PACKAGE_COOLDOWN = builder.comment("Remove the Cooldown for Package - BETA").define("no package cooldown", false);
             builder.pop();
 
             SPEC = builder.build();

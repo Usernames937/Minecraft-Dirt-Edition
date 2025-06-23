@@ -4,12 +4,12 @@ import net.idk.mcdirt.Config;
 import net.idk.mcdirt.Data;
 import net.idk.mcdirt.Mod_;
 import net.idk.mcdirt.e.I;
+import net.idk.mcdirt.e.adv.PackageItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.commands.CommandSource;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -28,6 +28,8 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.EventBusSubscriber.Bus;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
+
+import java.util.Random;
 
 @EventBusSubscriber(modid = Mod_.ID, bus = Bus.GAME)
 public class $ {
@@ -88,7 +90,7 @@ public class $ {
                 s.teleportTo(end, 0, 100, 0, 180, 0);
                 Minecraft.getInstance().gameRenderer.displayItemActivation(stack);
                 sl.playSound(s, s.getX(), s.getY(), s.getZ(), SoundEvents.TOTEM_USE, SoundSource.MASTER);
-                sl.sendParticles(ParticleTypes.TOTEM_OF_UNDYING, s.getX(), s.getY(), s.getZ(), 1000, 1.5, 1.5, 1.5, 1);
+                sl.sendParticles(ParticleTypes.TOTEM_OF_UNDYING, s.getX(), s.getY(), s.getZ(), 3000, 1.0, 1.0, 1.0, 1);
                 Mod_.queueServer(100, new Runnable() {
                     @Override
                     public void run() {
@@ -106,35 +108,6 @@ public class $ {
             }
         } else {
             return;
-        }
-    }
-
-    @SubscribeEvent
-    public static void _3e(PlayerInteractEvent.RightClickItem _p) {
-        try {
-            if (!_p.getLevel().isClientSide) {
-                ItemStack stack = _p.getItemStack();
-                Player player = _p.getEntity();
-                Level level = _p.getLevel();
-                int pNumber = -1;
-                for (int i = 0; i < I.PACKAGES.length; i++) {
-                    if (stack.is(I.PACKAGES[i])) {
-                        pNumber = i;
-                        break;
-                    }
-                }
-                if (pNumber != -1) {
-                    for (int i = 0; i < I.Arrays.packs[pNumber].length; i++) {
-                        if (pNumber == 2 && i == 0)
-                            I.Arrays.setData_p2();
-                        player.drop(I.Arrays.packs[pNumber][i], false);
-                        level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.BUNDLE_DROP_CONTENTS, SoundSource.PLAYERS);
-                    }
-                    stack.consume(1, player);
-                }
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
         }
     }
 }
