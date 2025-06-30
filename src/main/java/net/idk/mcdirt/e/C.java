@@ -1,6 +1,6 @@
 package net.idk.mcdirt.e;
 
-import net.idk.mcdirt.Config;
+import net.idk.mcdirt.config.Config;
 import net.idk.mcdirt.Mod_;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -8,7 +8,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 

@@ -1,6 +1,6 @@
 package net.idk.mcdirt.v;
 
-import net.idk.mcdirt.Config;
+import net.idk.mcdirt.config.Config;
 import net.idk.mcdirt.Data;
 import net.idk.mcdirt.Mod_;
 import net.idk.mcdirt.e.I;

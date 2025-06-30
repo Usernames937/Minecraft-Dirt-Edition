@@ -1,4 +1,4 @@
-package net.idk.mcdirt;
+package net.idk.mcdirt.config;
 
 import net.neoforged.neoforge.common.ModConfigSpec;
 
@@ -32,9 +32,11 @@ public class Config {
     public static class server {
         public static final ModConfigSpec.Builder builder = new ModConfigSpec.Builder();
         public static final ModConfigSpec SPEC;
+        public static final ModConfigSpec.EnumValue<FarlandsOption> FARLANDS;
 
         static {
             builder.push("Basic Configs");
+            FARLANDS = builder.comment("Generate Farlands In This Launch").defineEnum("generate farlands", FarlandsOption.dontGenerate);
             builder.pop();
 
             SPEC = builder.build();

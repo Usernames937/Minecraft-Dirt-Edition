@@ -1,6 +1,7 @@
 package net.idk.mcdirt;
 
 import com.mojang.logging.LogUtils;
+import net.idk.mcdirt.config.Config;
 import net.idk.mcdirt.e.B;
 import net.idk.mcdirt.e.C;
 import net.idk.mcdirt.e.I;

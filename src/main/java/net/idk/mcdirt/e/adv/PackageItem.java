@@ -1,6 +1,6 @@
 package net.idk.mcdirt.e.adv;
 
-import net.idk.mcdirt.Config;
+import net.idk.mcdirt.config.Config;
 import net.idk.mcdirt.Data;
 import net.idk.mcdirt.e.I;
 import net.minecraft.core.component.DataComponents;
