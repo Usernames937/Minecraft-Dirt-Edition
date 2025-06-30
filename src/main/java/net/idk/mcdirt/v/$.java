@@ -1,6 +1,6 @@
 package net.idk.mcdirt.v;
 
-import net.idk.mcdirt.Config;
+import net.idk.mcdirt.config.Config;
 import net.idk.mcdirt.Data;
 import net.idk.mcdirt.Mod_;
 import net.idk.mcdirt.e.I;
@@ -33,9 +33,8 @@ public class $ {
     @SubscribeEvent
     public static void _1e(RegisterCommandsEvent _p) {
         _p.getDispatcher().register(Commands.literal("download")
-                .requires(q -> {
-                    return q.isPlayer() && !Data.installed_totem.installed;
-                }).then(Commands.literal("totem_action").executes(p -> {
+                .requires(q -> q.isPlayer() && !Data.installed_totem.installed)
+                .then(Commands.literal("totem_action").executes(p -> {
                     if (p.getSource().getPlayer() != null) {
                         Player _sp = p.getSource().getPlayer();
                         String[] dList = {
@@ -87,8 +86,7 @@ public class $ {
                 s.teleportTo(end, 0, 100, 0, 180, 0);
                 Minecraft.getInstance().gameRenderer.displayItemActivation(stack);
                 sl.playSound(s, s.getX(), s.getY(), s.getZ(), SoundEvents.TOTEM_USE, SoundSource.MASTER);
-                sl.sendParticles(ParticleTypes.TOTEM_OF_UNDYING, s.getX(), s.getY(), s.getZ(), 1000, 1.5, 1.5, 1.5, 1);
-                ServerLevel overworld = s.server.getLevel(Level.OVERWORLD);
+                sl.sendParticles(ParticleTypes.TOTEM_OF_UNDYING, s.getX(), s.getY(), s.getZ(), 3000, 1.0, 1.0, 1.0, 1);
                 Mod_.queueServer(100, new Runnable() {
                     @Override
                     public void run() {
@@ -98,9 +96,7 @@ public class $ {
                                         s.getName().getString(), s.getDisplayName(), s.getServer(), s),
                                 "damage @n[type=ender_dragon] 100000 minecraft:explosion"
                         );
-                        //s.showEndCredits();
                         s.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 180 * 20, 4, false, false));
-                        //Mod_.queueServer(20, () -> s.teleportTo(overworld, s.getX(), s.getY(), s.getZ(), 180, 0));
                     }
                 });
                 s.addItem(new ItemStack(Items.BEACON, 16));
@@ -109,5 +105,18 @@ public class $ {
         } else {
             return;
         }
+    }
+
+    @SubscribeEvent
+    public static void _3e(RegisterCommandsEvent _p) {
+        _p.getDispatcher().register(Commands.literal(Component.translatable("TheDumbestThingIEverSeen").getString())
+                .requires(CommandSourceStack::isPlayer)
+                .then(Commands.literal("wp")
+                        .executes(p -> {
+                            if (p.getSource().getPlayer() != null) {
+                                p.getSource().getPlayer().displayClientMessage(Component.literal("most people E at 10:00"), false);
+                            }
+                            return 0;
+                        })));
     }
 }

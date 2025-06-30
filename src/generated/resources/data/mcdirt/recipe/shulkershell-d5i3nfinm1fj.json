@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "t": {
+      "item": "mcdirt:dirt5"
+    }
+  },
+  "pattern": [
+    "ttt",
+    "t t"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:shulker_shell"
+  }
+}

@@ -28,11 +28,11 @@ public class BlockLootTableGenerator extends BlockLootSubProvider {
         for (int i = 0; i < 25; i++) {
             dropSelf(B.DIRTS[i].get());
         }
+        dropSelf(B.BLOCK_ENTITIES[0].get());
     }
 
-    protected LootTable.Builder m_1_(Block b_1_, Item i_1_, int int_1_, int int_2_, String stupid_1_, String stupid_2_, String stupid_3_) {
+    protected LootTable.Builder m_1_(Block b_1_, Item i_1_, int int_1_, int int_2_) {
         HolderLookup.RegistryLookup<Enchantment> registrylookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
-        System.out.println(stupid_1_ + stupid_2_ + stupid_3_);
         return this.createSilkTouchDispatchTable(
                 b_1_, this.applyExplosionDecay(
                         b_1_, LootItem.lootTableItem(i_1_)

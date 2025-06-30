@@ -7,6 +7,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
@@ -34,6 +35,21 @@ public class RecipeGenerator extends RecipeProvider implements IConditionBuilder
                 .pattern("eee")
                 .unlockedBy("dirt25-i3nfnj2t4kt2nt", has(B.DIRTS[24]))
                 .save(output);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.SHULKER_SHELL)
+                .define('t', B.DIRTS[4])
+                .pattern("ttt")
+                .pattern("t t")
+                .unlockedBy(Mod_.ID + ":shulkershell-d5i3nfinm1fj", has(B.DIRTS[4]))
+                .save(output, Mod_.ID + ":shulkershell-d5i3nfinm1fj");
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, B.BLOCK_ENTITIES[0])
+                .define('e', Blocks.COBBLESTONE)
+                .pattern("ee")
+                .pattern("ee")
+                .unlockedBy(Mod_.ID_C + "cobblestonecraftingtable-4cien1mcsk", has(Blocks.COBBLESTONE))
+                .save(output, Mod_.ID_C + "cobblestonecraftingtable-4cien1mcsk");
+        for (int i = 0; i < I.PACKAGES.length; i++) {
+            stonecutting(output, RecipeCategory.COMBAT, B.DIRTS[24], I.PACKAGES[i], 1);
+        }
     }
 
     protected static void smelting(
@@ -109,6 +125,11 @@ public class RecipeGenerator extends RecipeProvider implements IConditionBuilder
                 )
                 .unlocks(unlockKey, has(unlockBy))
                 .save(recipeOutput, Mod_.ID + ":" + getItemName(result) + "_smithing");
+    }
+    protected static void stonecutting(RecipeOutput output, RecipeCategory category, ItemLike material, ItemLike result, int count) {
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(material), category, result, count)
+                .unlockedBy(getHasName(material), has(material))
+                .save(output, Mod_.ID_C + getConversionRecipeName(result, material) + "_stonecutting");
     }
     //if anyone want to modify, create a different method.
     private static void dirt(RecipeOutput o, ItemLike mt, ItemLike re, int i) {

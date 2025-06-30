@@ -1,6 +1,6 @@
 package net.idk.mcdirt.e;
 
-import net.idk.mcdirt.Config;
+import net.idk.mcdirt.config.Config;
 import net.idk.mcdirt.Mod_;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -34,8 +34,13 @@ public class C {
     public static final Supplier<CreativeModeTab> COMMON = build("common",
             () -> CreativeModeTab.builder()
                     .displayItems((p, _p) -> {
+                        _p.accept(B.BLOCK_ENTITIES[0]);
+                        //_p.accept(Blocks.AIR);
                         if (Config.common.ENABLE_DIRT_MINECRAFT.get()) {
                             _p.accept(I.TOTEM_OF_COMPELETION);
+                        }
+                        for (int i = 0; i < I.PACKAGES.length; i++) {
+                            _p.accept(I.PACKAGES[i]);
                         }
                     })
                     .icon(() -> new ItemStack(Items.END_CRYSTAL))

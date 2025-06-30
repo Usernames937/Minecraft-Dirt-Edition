@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mcdirt:cobblestonecraftingtable-4cien1mcsk"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "mcdirt:cobblestonecraftingtable-4cien1mcsk": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:cobblestone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "mcdirt:cobblestonecraftingtable-4cien1mcsk"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mcdirt:cobblestonecraftingtable-4cien1mcsk"
+    ]
+  }
+}

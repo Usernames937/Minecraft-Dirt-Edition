@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "e": {
+      "item": "minecraft:cobblestone"
+    }
+  },
+  "pattern": [
+    "ee",
+    "ee"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mcdirt:cobblestone_crafting_table"
+  }
+}

@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_21",
   "refmap": "mcdirt.refmap.json",
   "mixins": [
+    "PerlinNoiseMixin"
   ],
   "client": [
   ],
