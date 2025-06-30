@@ -1,10 +1,12 @@
 package net.idk.mcdirt.data;
 
 import net.idk.mcdirt.Mod_;
+import net.idk.mcdirt.e.B;
 import net.idk.mcdirt.e.T;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
@@ -34,6 +36,8 @@ public class TagGenerator {
 
         @Override
         protected void addTags(HolderLookup.Provider provider) {
+            tag(BlockTags.MINEABLE_WITH_PICKAXE)
+                    .add(B.BLOCK_ENTITIES[0].get());
         }
     }
 }

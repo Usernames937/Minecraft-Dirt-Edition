@@ -8,6 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -34,6 +35,8 @@ public class C {
     public static final Supplier<CreativeModeTab> COMMON = build("common",
             () -> CreativeModeTab.builder()
                     .displayItems((p, _p) -> {
+                        _p.accept(B.BLOCK_ENTITIES[0]);
+                        //_p.accept(Blocks.AIR);
                         if (Config.common.ENABLE_DIRT_MINECRAFT.get()) {
                             _p.accept(I.TOTEM_OF_COMPELETION);
                         }

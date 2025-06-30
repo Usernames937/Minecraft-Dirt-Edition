@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "mcdirt:block/cobblestone_crafting_table"
+    }
+  }
+}

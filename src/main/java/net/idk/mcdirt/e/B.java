@@ -1,6 +1,7 @@
 package net.idk.mcdirt.e;
 
 import net.idk.mcdirt.Mod_;
+import net.idk.mcdirt.e.adv.CobblestoneCraftingTableBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -26,6 +27,9 @@ public class B {
     }
 
     public static final DeferredBlock<?>[] DIRTS = getDirts();
+    public static final DeferredBlock<?>[] BLOCK_ENTITIES = {
+            create("cobblestone_crafting_table"/* 0 */, () -> new CobblestoneCraftingTableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLESTONE)))
+    };
 
     public static <T extends Block> DeferredBlock<T> create(String n, Supplier<T> b, Item.Properties p) {
         DeferredBlock<T> r = BLOCK.register(n, b);

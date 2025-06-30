@@ -28,6 +28,7 @@ public class BlockLootTableGenerator extends BlockLootSubProvider {
         for (int i = 0; i < 25; i++) {
             dropSelf(B.DIRTS[i].get());
         }
+        dropSelf(B.BLOCK_ENTITIES[0].get());
     }
 
     protected LootTable.Builder m_1_(Block b_1_, Item i_1_, int int_1_, int int_2_) {

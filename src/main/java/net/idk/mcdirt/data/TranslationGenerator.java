@@ -3,6 +3,7 @@ package net.idk.mcdirt.data;
 import net.idk.mcdirt.Mod_;
 import net.idk.mcdirt.e.B;
 import net.idk.mcdirt.e.I;
+import net.minecraft.ChatFormatting;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
@@ -23,6 +24,9 @@ public class TranslationGenerator {
                 "Flying Package",
                 "Admin Package"
         };
+        private static final String[] blockEntityNames1 = {
+                "Cobblestone Crafting Table",
+        };
         @Override
         protected void addTranslations() {
             for (int i = 0; i < 25; i++) {
@@ -33,6 +37,12 @@ public class TranslationGenerator {
             for (int i = 0; i < I.PACKAGES.length; i++) {
                 addItem(I.PACKAGES[i], itemNames1[i]);
             }
+            for (int i = 0; i < blockEntityNames1.length; i++) {
+                addBlock(B.BLOCK_ENTITIES[i], blockEntityNames1[i]);
+            }
+
+            /*=== THIS IS THE JOKE ===*/
+            add("Wake up", ChatFormatting.ITALIC + "E");
         }
     }
 }

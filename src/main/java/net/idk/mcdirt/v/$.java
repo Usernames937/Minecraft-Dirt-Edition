@@ -33,9 +33,8 @@ public class $ {
     @SubscribeEvent
     public static void _1e(RegisterCommandsEvent _p) {
         _p.getDispatcher().register(Commands.literal("download")
-                .requires(q -> {
-                    return q.isPlayer() && !Data.installed_totem.installed;
-                }).then(Commands.literal("totem_action").executes(p -> {
+                .requires(q -> q.isPlayer() && !Data.installed_totem.installed)
+                .then(Commands.literal("totem_action").executes(p -> {
                     if (p.getSource().getPlayer() != null) {
                         Player _sp = p.getSource().getPlayer();
                         String[] dList = {
@@ -106,5 +105,18 @@ public class $ {
         } else {
             return;
         }
+    }
+
+    @SubscribeEvent
+    public static void _3e(RegisterCommandsEvent _p) {
+        _p.getDispatcher().register(Commands.literal(Component.translatable("TheDumbestThingIEverSeen").getString())
+                .requires(CommandSourceStack::isPlayer)
+                .then(Commands.literal("wp")
+                        .executes(p -> {
+                            if (p.getSource().getPlayer() != null) {
+                                p.getSource().getPlayer().displayClientMessage(Component.literal("most people E at 10:00"), false);
+                            }
+                            return 0;
+                        })));
     }
 }

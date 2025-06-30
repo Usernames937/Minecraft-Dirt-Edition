@@ -41,6 +41,12 @@ public class RecipeGenerator extends RecipeProvider implements IConditionBuilder
                 .pattern("t t")
                 .unlockedBy(Mod_.ID + ":shulkershell-d5i3nfinm1fj", has(B.DIRTS[4]))
                 .save(output, Mod_.ID + ":shulkershell-d5i3nfinm1fj");
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, B.BLOCK_ENTITIES[0])
+                .define('e', Blocks.COBBLESTONE)
+                .pattern("ee")
+                .pattern("ee")
+                .unlockedBy(Mod_.ID_C + "cobblestonecraftingtable-4cien1mcsk", has(Blocks.COBBLESTONE))
+                .save(output, Mod_.ID_C + "cobblestonecraftingtable-4cien1mcsk");
         for (int i = 0; i < I.PACKAGES.length; i++) {
             stonecutting(output, RecipeCategory.COMBAT, B.DIRTS[24], I.PACKAGES[i], 1);
         }
